@@ -13,6 +13,7 @@ public OBJ_MyHouseDoor() {
 			image = ImageIO.read(getClass().getResourceAsStream("/objects/Brick House Door.png"));
 		} catch(IOException e) {
 			e.printStackTrace();
-		}	
+		}
+		collision = true;
 }
 }

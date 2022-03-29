@@ -4,11 +4,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class OBJ_5xPokeball extends SuperObject{
-
-	public OBJ_5xPokeball() {
+public class OBJ_SnivyPokeball extends SuperObject {
+	
+	public OBJ_SnivyPokeball() {
 		
-		name = "5x Pokeball";
+		name = "Snivy";
 		try {
 			image = ImageIO.read(getClass().getResourceAsStream("/objects/5x Pokeball.png"));
 		} catch(IOException e) {

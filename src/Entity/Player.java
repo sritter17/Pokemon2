@@ -18,6 +18,8 @@ public class Player extends Entity{
 	
 	public final int screenX;
 	public final int screenY;
+	public int hasPokeBall = 0;
+	public int numOfPokemon = 0;
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
 	
@@ -88,6 +90,9 @@ public class Player extends Entity{
 			collisionOn = false;
 			gp.cChecker.checkerTile(this);
 			
+			//CHECK OBJ COLLISION
+			int objIndex = gp.cChecker.checkObject(this, true);
+			pickUpObject(objIndex);
 			//IF COLLISION IS FALSE, PLAYER CAN MOVE
 			
 			if(collisionOn == false) {
@@ -126,6 +131,38 @@ public class Player extends Entity{
 			}
 		  }
 		}
+		
+		public void pickUpObject(int i) {
+			
+			if (i != 999) {
+				
+				String objectName = gp.obj[i].name;
+				
+				switch(objectName) {
+				case "5x Pokeball":
+					gp.obj[i] = null;
+					hasPokeBall += 5;
+					gp.ui.showMessage("You picked up 5 PokeBalls!");
+					break;
+				case "First Battle":
+					
+					break;
+				case "Starter Pokemon":
+					gp.obj[i] = null;
+					gp.player.numOfPokemon += 1;
+					break;
+				case "Piplup":
+					gp.obj[i] = null;
+					gp.player.numOfPokemon += 1;
+					break;
+				case "Snivy":
+					gp.obj[i] = null;
+					gp.player.numOfPokemon += 1;
+					break;
+				}
+			}
+		}
+		
 		public void draw(Graphics2D g2) {
 			
 			BufferedImage image = null;

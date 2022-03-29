@@ -14,5 +14,6 @@ public OBJ_FriendHouse() {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}	
+		collision = true;
 }
 }
