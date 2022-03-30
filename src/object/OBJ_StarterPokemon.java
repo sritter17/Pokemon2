@@ -10,7 +10,7 @@ public class OBJ_StarterPokemon extends SuperObject {
 		
 		name = "Starter Pokemon";
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream("/objects/Pixel charmander.png"));
+			image = ImageIO.read(getClass().getResourceAsStream("/objects/small charmander 2.png"));
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

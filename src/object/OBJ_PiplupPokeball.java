@@ -10,7 +10,7 @@ public class OBJ_PiplupPokeball extends SuperObject {
 		
 		name = "Piplup";
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream("/objects/piplup pixel.png"));
+			image = ImageIO.read(getClass().getResourceAsStream("/objects/piplup pixel 2.png"));
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
