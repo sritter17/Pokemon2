@@ -20,6 +20,9 @@ public class UI {
 	public boolean messageOn = false;
 	public String message = "";
 	int messageTime = 0;
+	public boolean showBattle = false;
+	int pokemonOpponentBattleSize = gp.intTileSize * 3;
+	int pokemonBattleSize = gp.intTileSize * 5;
 	
 	public UI(GamePanel gp) {
 		this.gp = gp;
@@ -39,7 +42,15 @@ public class UI {
 		
 	}
 	
+	
+	public void showBattle() {
+		
+		showBattle = true;
+		
+	}
+	
 	public void draw(Graphics2D g2) {
+		
 		//DRAW POKEBALLS
 		if (gp.player.numOfPokemon >= 1) {
 			int i = gp.player.numOfPokemon;
@@ -81,6 +92,23 @@ public class UI {
 			}
 		}
 		
+		if (showBattle == true) { 
+			g2.setColor(Color.white);
+			g2.fillRect(0,0,25 * gp.intTileSize,19* gp.intTileSize);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		
 	}
+	
 	
 }

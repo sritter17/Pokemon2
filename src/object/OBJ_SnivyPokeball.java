@@ -10,7 +10,7 @@ public class OBJ_SnivyPokeball extends SuperObject {
 		
 		name = "Snivy";
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream("/objects/5x Pokeball.png"));
+			image = ImageIO.read(getClass().getResourceAsStream("/objects/pixel snivy.png"));
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

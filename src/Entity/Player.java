@@ -20,6 +20,7 @@ public class Player extends Entity{
 	public final int screenY;
 	public int hasPokeBall = 0;
 	public int numOfPokemon = 0;
+	public String[] Pokemon;
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
 	
@@ -145,19 +146,22 @@ public class Player extends Entity{
 					gp.ui.showMessage("You picked up 5 PokeBalls!");
 					break;
 				case "First Battle":
-					
+					gp.ui.showBattle = true;
 					break;
 				case "Starter Pokemon":
 					gp.obj[i] = null;
 					gp.player.numOfPokemon += 1;
+					Pokemon[numOfPokemon] = "charmander";
 					break;
 				case "Piplup":
 					gp.obj[i] = null;
 					gp.player.numOfPokemon += 1;
+					Pokemon[numOfPokemon] = "piplup";
 					break;
 				case "Snivy":
 					gp.obj[i] = null;
 					gp.player.numOfPokemon += 1;
+					Pokemon[numOfPokemon] = "snivy";
 					break;
 				}
 			}
