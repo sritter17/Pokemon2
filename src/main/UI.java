@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
+import BattlePokemon.PlayerPokemon;
 import object.EmptyPokeballs;
 import object.OBJ_StarterPokemon;
 import object.PokemonInventory;
@@ -86,6 +87,7 @@ public class UI {
 		}
 		//DISPLAY BATTLE AND POKEMON
 		if (showBattle == true) { 
+	
 			g2.setColor(Color.white);
 			g2.fillRect(0,0,25 * gp.intTileSize,19* gp.intTileSize);
 			g2.setColor(Color.black);
@@ -99,9 +101,7 @@ public class UI {
 			g2.setColor(Color.black);
 			g2.fillRect(10,680,1170,10);
 			
-			switch(gp.player.playerPokemon[1]) {
 			
-			}
 			
 			
 		}
