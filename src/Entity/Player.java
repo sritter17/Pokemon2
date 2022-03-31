@@ -20,7 +20,7 @@ public class Player extends Entity{
 	public final int screenY;
 	public int hasPokeBall = 0;
 	public int numOfPokemon = 0;
-	public String[] Pokemon;
+	public String[] playerPokemon = {"x","x","x","x","x","x"};
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
 	
@@ -150,18 +150,21 @@ public class Player extends Entity{
 					break;
 				case "Starter Pokemon":
 					gp.obj[i] = null;
+					playerPokemon[numOfPokemon] = "charmander";
 					gp.player.numOfPokemon += 1;
-					Pokemon[numOfPokemon] = "charmander";
+					gp.ui.showMessage("You obtained Charmander!");
 					break;
 				case "Piplup":
 					gp.obj[i] = null;
 					gp.player.numOfPokemon += 1;
-					Pokemon[numOfPokemon] = "piplup";
+					playerPokemon[numOfPokemon] = "piplup";
+					gp.ui.showMessage("You obtained Piplup!");
 					break;
 				case "Snivy":
 					gp.obj[i] = null;
 					gp.player.numOfPokemon += 1;
-					Pokemon[numOfPokemon] = "snivy";
+					playerPokemon[numOfPokemon] = "snivy";
+					gp.ui.showMessage("You obtained Snivy!");
 					break;
 				}
 			}

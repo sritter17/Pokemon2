@@ -21,8 +21,8 @@ public class UI {
 	public String message = "";
 	int messageTime = 0;
 	public boolean showBattle = false;
-	int pokemonOpponentBattleSize = gp.intTileSize * 3;
-	int pokemonBattleSize = gp.intTileSize * 5;
+	int pokemonOpponentBattleSize = 16 * 3;
+	int pokemonBattleSize = 16 * 5;
 	
 	public UI(GamePanel gp) {
 		this.gp = gp;
@@ -39,13 +39,6 @@ public class UI {
 		
 		message = text;
 		messageOn = true;
-		
-	}
-	
-	
-	public void showBattle() {
-		
-		showBattle = true;
 		
 	}
 	
@@ -91,19 +84,24 @@ public class UI {
 				messageOn = false;
 			}
 		}
-		
+		//DISPLAY BATTLE AND POKEMON
 		if (showBattle == true) { 
 			g2.setColor(Color.white);
 			g2.fillRect(0,0,25 * gp.intTileSize,19* gp.intTileSize);
+			g2.setColor(Color.black);
+			g2.fillRect(10,10,25 * gp.intTileSize - 20,19 * gp.intTileSize - 20);
+			g2.setColor(Color.white);
+			g2.fillRect(20,20,1160,1160);
+			g2.setColor(Color.black);
+			g2.fillRect(230,700,750,150);
+			g2.setColor(Color.white);
+			g2.fillRect(250,720,710,110);
+			g2.setColor(Color.black);
+			g2.fillRect(10,680,1170,10);
 			
+			switch(gp.player.playerPokemon[1]) {
 			
-			
-			
-			
-			
-			
-			
-			
+			}
 			
 			
 		}
