@@ -4,9 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import BattlePokemon.OpponentPokemon;
 import BattlePokemon.PlayerPokemon;
 import object.EmptyPokeballs;
 import object.OBJ_StarterPokemon;
@@ -18,6 +20,8 @@ public class UI {
 	Font GameText;
 	BufferedImage PokeballImage;
 	BufferedImage PokeballEmpty;
+	BufferedImage Pokemon;
+	BufferedImage OpponentPokemon;
 	public boolean messageOn = false;
 	public String message = "";
 	int messageTime = 0;
@@ -87,7 +91,22 @@ public class UI {
 		}
 		//DISPLAY BATTLE AND POKEMON
 		if (showBattle == true) { 
-	
+			
+			PlayerPokemon playerPokemon = new PlayerPokemon(gp);
+			OpponentPokemon opponentPokemon = new OpponentPokemon(gp);
+			
+			try {
+			Pokemon = ImageIO.read(getClass().getResourceAsStream(playerPokemon.CurrentPokemon[4]));
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				OpponentPokemon = ImageIO.read(getClass().getResourceAsStream(opponentPokemon.CurrentOpponentPokemon[4]));
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			
 			g2.setColor(Color.white);
 			g2.fillRect(0,0,25 * gp.intTileSize,19* gp.intTileSize);
 			g2.setColor(Color.black);
@@ -99,6 +118,8 @@ public class UI {
 			g2.setColor(Color.white);
 			g2.fillRect(250,720,710,110);
 			g2.setColor(Color.black);
+			g2.drawImage(Pokemon,150,390,300,300,null);
+			g2.drawImage(OpponentPokemon,800,120,200,200,null);
 			g2.fillRect(10,680,1170,10);
 			
 			

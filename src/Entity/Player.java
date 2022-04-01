@@ -21,6 +21,8 @@ public class Player extends Entity{
 	public int hasPokeBall = 0;
 	public int numOfPokemon = 0;
 	public String[] playerPokemon = {"x","x","x","x","x","x"};
+	public String[] opponentPokemon = {"x","x","x","x","x","x"};
+	public int numOpponentPokemon = 0;
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
 	
@@ -145,27 +147,38 @@ public class Player extends Entity{
 					hasPokeBall += 5;
 					gp.ui.showMessage("You picked up 5 PokeBalls!");
 					break;
+					
 				case "First Battle":
+					numOpponentPokemon = 1;
+					opponentPokemon[0] = "starly";
 					gp.ui.showBattle = true;
 					break;
+					
 				case "Starter Pokemon":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "charmander";
 					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Charmander!");
 					break;
+					
 				case "Piplup":
 					gp.obj[i] = null;
-					gp.player.numOfPokemon += 1;
 					playerPokemon[numOfPokemon] = "piplup";
+					if (gp.player.numOfPokemon != 0) {
+						gp.player.numOfPokemon += 1;
+						}
 					gp.ui.showMessage("You obtained Piplup!");
 					break;
+					
 				case "Snivy":
 					gp.obj[i] = null;
-					gp.player.numOfPokemon += 1;
 					playerPokemon[numOfPokemon] = "snivy";
+					if (gp.player.numOfPokemon != 0) {
+						gp.player.numOfPokemon += 1;
+						}
 					gp.ui.showMessage("You obtained Snivy!");
 					break;
+					
 				}
 			}
 		}

@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import javax.swing.JPanel;
 
-import BattlePokemon.Pokemon;
 import Entity.Player;
 import object.SuperObject;
 import tile.TileManager;
@@ -41,11 +40,9 @@ public class GamePanel extends JPanel implements Runnable {
 	Thread gameThread;
 	public CollisionChecker cChecker = new CollisionChecker(this);
 	public AssetSetter aSetter = new AssetSetter(this);
-	//public PlayerPokemon PlayerPokemon = new PlayerPokemon(this);
 	public UI ui = new UI(this);
 	public Player player = new Player(this,keyH);
 	public SuperObject obj[] = new SuperObject[10]; 
-	public Pokemon pokemon = new Pokemon();
 	
 	public GamePanel() {
 		
