@@ -11,6 +11,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import BattlePokemon.MasterBattlePokemon;
+
 public class Player extends Entity{
 
 	GamePanel gp;
@@ -23,6 +25,7 @@ public class Player extends Entity{
 	public String[] playerPokemon = {"x","x","x","x","x","x"};
 	public String[] opponentPokemon = {"x","x","x","x","x","x"};
 	public int numOpponentPokemon = 0;
+	public boolean controlSwitch = false;
 	
 	public Player(GamePanel gp, KeyHandler keyH) {
 	
@@ -71,8 +74,8 @@ public class Player extends Entity{
 		}
 		
 		public void update() {
-
-			if (keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
+			
+			if (keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true || keyH.menuSelectPressed == true) {
 		
 			if (keyH.upPressed == true) {
 				direction = "up";			
@@ -89,7 +92,11 @@ public class Player extends Entity{
 			{
 				direction = "right";
 			}
-			//CHECK TILE COLLISION
+			else if(keyH.menuSelectPressed == true) {
+				direction = "select";
+			}
+			
+					//CHECK TILE COLLISION
 			collisionOn = false;
 			gp.cChecker.checkerTile(this);
 			
@@ -98,7 +105,7 @@ public class Player extends Entity{
 			pickUpObject(objIndex);
 			//IF COLLISION IS FALSE, PLAYER CAN MOVE
 			
-			if(collisionOn == false) {
+			if(collisionOn == false && controlSwitch == false) {
 				
 				switch(direction) {
 				case "up":
@@ -151,12 +158,15 @@ public class Player extends Entity{
 				case "First Battle":
 					numOpponentPokemon = 1;
 					opponentPokemon[0] = "starly";
+					controlSwitch = true;
 					gp.ui.showBattle = true;
 					break;
 					
 				case "Starter Pokemon":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "charmander";
+					MasterBattlePokemon masterCharmanderBattlePokemon = new MasterBattlePokemon(gp);
+					masterCharmanderBattlePokemon.order = gp.player.numOfPokemon;
 					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Charmander!");
 					break;
@@ -164,18 +174,18 @@ public class Player extends Entity{
 				case "Piplup":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "piplup";
-					if (gp.player.numOfPokemon != 0) {
-						gp.player.numOfPokemon += 1;
-						}
+					MasterBattlePokemon masterPiplupBattlePokemon = new MasterBattlePokemon(gp);
+					masterPiplupBattlePokemon.order = gp.player.numOfPokemon;
+					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Piplup!");
 					break;
 					
 				case "Snivy":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "snivy";
-					if (gp.player.numOfPokemon != 0) {
-						gp.player.numOfPokemon += 1;
-						}
+					MasterBattlePokemon masterSnivyBattlePokemon = new MasterBattlePokemon(gp);
+					masterSnivyBattlePokemon.order = gp.player.numOfPokemon;
+					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Snivy!");
 					break;
 					
@@ -185,45 +195,52 @@ public class Player extends Entity{
 		
 		public void draw(Graphics2D g2) {
 			
+			if (controlSwitch == false) {
+			//MAP MOVEMENT
 			BufferedImage image = null;
 			
 			switch(direction) {
 			case "up":
-				if (spriteNum == 1) {
-					image = up1;
-				}
-			if (spriteNum == 2) {
-				image = up2;
+			if (spriteNum == 1) {
+				image = up1;
 			}
+				if (spriteNum == 2) {
+					image = up2;
+				}
 			break;
 			
 			case "down":
 			if (spriteNum == 1) {
 				image = down1;
 			}
-		if (spriteNum == 2) {
-			image = down2;
-		}
+				if (spriteNum == 2) {
+					image = down2;
+				}
 			break;
 			
 			case "left":
 			if (spriteNum == 1) {
 				image = left1;
 			}
-		if (spriteNum == 2) {
-			image = left2;
-		}
+				if (spriteNum == 2) {
+				image = left2;
+				}
 			break;
 			
 			case "right":
 			if (spriteNum == 1) {
 				image = right1;
 			}
-		if (spriteNum == 2) {
-			image = right2;
-		}
+				if (spriteNum == 2) {
+					image = right2;
+				}
 			break;
 			}
 			g2.drawImage(image, screenX, screenY, gp.intTileSize, gp.intTileSize, null);
+			}		
+				
+		
+			
 		}
-}
+		}
+

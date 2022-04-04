@@ -12,7 +12,8 @@ public class PlayerPokemon {
 	String[] PokemonBaseAttack = {"7","7","7","6"};
 	String[] PokemonBaseDefense = {"3","3","3","2"};
 	String[] PokemonBattleFrontSprite = {"","","","/PokemonBattleSprites/Starly Front View.png"};
-	String[] PokemonBattleRearSprite = {"","/PokemonBattleSprites/Charmander Rear Battle View.png","",""};
+	String[] PokemonBattleRearSprite = {"/PokemonBattleSprites/piplup sprite rear view.png","/PokemonBattleSprites/Charmander Rear Battle View.png","/PokemonBattleSprites/snivy rear view.png",""};
+	String[] CurrentPokemonAttacks;
 	
 	public String[] CurrentPokemon = {"","","","",""};
 	

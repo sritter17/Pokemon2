@@ -28,6 +28,8 @@ public class UI {
 	public boolean showBattle = false;
 	int pokemonOpponentBattleSize = 16 * 3;
 	int pokemonBattleSize = 16 * 5;
+	public String selectedItem;
+	public String[] currentPokemonAttacks;
 	
 	public UI(GamePanel gp) {
 		this.gp = gp;
@@ -121,13 +123,64 @@ public class UI {
 			g2.drawImage(Pokemon,150,390,300,300,null);
 			g2.drawImage(OpponentPokemon,800,120,200,200,null);
 			g2.fillRect(10,680,1170,10);
+			g2.setFont(g2.getFont().deriveFont(20F));
+			//BATTLE OPTIONS
+			g2.drawString("Attack", 560, 750);
+			g2.drawString("Items", 450, 780);
+			g2.drawString("Run", 570, 820);
+			g2.drawString("Pokemon", 680, 780);
 			
-			
-			
+			if (gp.player.controlSwitch == true) {
+				//BATTLE OPTION MOVEMENT
+				switch (gp.player.direction) {
+				case "up":
+					g2.drawRect(558,730,60,40);
+					
+					selectedItem = "attack";
+					break;
+				case "down":
+					g2.drawRect(568,800,60,40);
+					
+					selectedItem = "run";
+					break;
+				case "left":
+					g2.drawRect(448,760,60,40);
+					
+					selectedItem = "items";
+					break;
+				case "right":
+					g2.drawRect(678,760,90,40);
+					
+					selectedItem = "pokemon";
+					break;
+					//DISPLAY MENU BASED ON SELECTED ITEM
+				case "select":
+					switch (selectedItem) {
+					case "attack":
+						
+						
+					
+						g2.drawString("Items", 450, 780);
+						g2.drawString("Run", 570, 820);
+						g2.drawString("Pokemon", 680, 780);
+						break;
+					case "run":
+						
+						break;
+					case "items":
+						
+						break;
+					case "pokemon":
+						
+						break;
+					}
+				break;
+				}
 			
 		}
 		
 	}
 	
-	
+	}
 }
+
