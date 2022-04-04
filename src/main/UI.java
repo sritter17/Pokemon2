@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 
 import BattlePokemon.OpponentPokemon;
 import BattlePokemon.PlayerPokemon;
+import Entity.Player;
 import object.EmptyPokeballs;
 import object.OBJ_StarterPokemon;
 import object.PokemonInventory;
@@ -17,6 +18,7 @@ import object.PokemonInventory;
 public class UI {
 
 	GamePanel gp;
+	Player player;
 	Font GameText;
 	BufferedImage PokeballImage;
 	BufferedImage PokeballEmpty;
@@ -29,9 +31,10 @@ public class UI {
 	int pokemonOpponentBattleSize = 16 * 3;
 	int pokemonBattleSize = 16 * 5;
 	public String selectedItem;
-	public String[] currentPokemonAttacks;
+	public String[] currentPokemonAttacks = {"x","x","x","x"};
 	
 	public UI(GamePanel gp) {
+		this.gp = gp;
 		this.gp = gp;
 		GameText = new Font("Press Start 2P Regular",Font.PLAIN, 20);
 		PokemonInventory Pokeballs = new PokemonInventory();
@@ -159,8 +162,12 @@ public class UI {
 					case "attack":
 						
 						
-					
-						g2.drawString("Items", 450, 780);
+					System.out.println("ran");
+					g2.setColor(Color.white);
+					g2.fillRect(250,720,710,110);
+					g2.setColor(Color.black);
+					//currentPokemonAttacks[0] = gp.player.masterCharmanderBattlePokemon.attacks[0];
+					//g2.drawString(masterCharmanderBattlePokemon.attacks[0], 450, 780);
 						g2.drawString("Run", 570, 820);
 						g2.drawString("Pokemon", 680, 780);
 						break;

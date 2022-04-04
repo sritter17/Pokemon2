@@ -165,7 +165,7 @@ public class Player extends Entity{
 				case "Starter Pokemon":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "charmander";
-					MasterBattlePokemon masterCharmanderBattlePokemon = new MasterBattlePokemon(gp);
+					MasterBattlePokemon masterCharmanderBattlePokemon = new MasterBattlePokemon(this);
 					masterCharmanderBattlePokemon.order = gp.player.numOfPokemon;
 					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Charmander!");
@@ -174,8 +174,9 @@ public class Player extends Entity{
 				case "Piplup":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "piplup";
-					MasterBattlePokemon masterPiplupBattlePokemon = new MasterBattlePokemon(gp);
+					MasterBattlePokemon masterPiplupBattlePokemon = new MasterBattlePokemon(this);
 					masterPiplupBattlePokemon.order = gp.player.numOfPokemon;
+					System.out.println(masterPiplupBattlePokemon.order);
 					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Piplup!");
 					break;
@@ -183,7 +184,7 @@ public class Player extends Entity{
 				case "Snivy":
 					gp.obj[i] = null;
 					playerPokemon[numOfPokemon] = "snivy";
-					MasterBattlePokemon masterSnivyBattlePokemon = new MasterBattlePokemon(gp);
+					MasterBattlePokemon masterSnivyBattlePokemon = new MasterBattlePokemon(this);
 					masterSnivyBattlePokemon.order = gp.player.numOfPokemon;
 					gp.player.numOfPokemon += 1;
 					gp.ui.showMessage("You obtained Snivy!");

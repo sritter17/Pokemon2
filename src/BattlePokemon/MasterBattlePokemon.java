@@ -1,10 +1,11 @@
 package BattlePokemon;
 
+import Entity.Player;
 import main.GamePanel;
 
 public class MasterBattlePokemon {
-GamePanel gp;
-	
+Player player;
+	GamePanel gp;
 	public int attack;
 	public int defense;
 	public String name;
@@ -14,16 +15,19 @@ GamePanel gp;
 	public double XPinterval = 1.5;
 	public int order = 0;
 	
-	public MasterBattlePokemon(GamePanel gp) {
-		
-		switch (gp.player.playerPokemon[gp.player.numOfPokemon]) {
+	public MasterBattlePokemon(Player player) {
+		this.player = player;
+		System.out.println("Construtor ran");
+		switch (player.playerPokemon[player.numOfPokemon]) {
 		
 		case "charmander":
+			
 			name = "charmander";
 			attack = 7;
 			defense = 3;
 			HP = 20;
 			attacks[0] = ("tackle");
+			System.out.println(attacks[0]);
 			attacks[1] = ("ember");
 			attacks[2] = ("growl");
 			attacks[3] = ("scratch");
@@ -51,6 +55,12 @@ GamePanel gp;
 		}
 		
 	}
+
+	public static void main(String[] args) {
+		
+	}
+		
+	
 	
 	
 }
